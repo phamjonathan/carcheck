@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
-
+var passport = require('passport');
 // User Schema
 var UserSchema = mongoose.Schema({
   username: {
@@ -47,7 +47,7 @@ module.exports.comparePassword = function (candidatePassword, hash, callback) {
   });
 }
 var LocalStrategy = require('passport-local').Strategy;
-passport.use(new LocalStrategy(
+ passport.use(new LocalStrategy(
   function (username, password, done) {
     User.getUserByUsername(username, function (err, user) {
       if (err) throw err;

@@ -1,20 +1,29 @@
+var passport = require('passport');
+
+var db = require("../models")
 function apiRoutes(app) {
+    app.get("/test",function(req,res){
+        res.send("hello")
+    })
+
+    console.log("app:",app)
     // Register User
     app.post('/register', function (req, res) {
-
-        var newUser = new User({
+        console.log(req.body)
+        var newUser = new db.User({
             name: req.body.name,
             email: req.body.email,
             username: req.body.username,
             password: req.body.password
         });
 
-        User.createUser(newUser, function (err, user) {
+        db.User.createUser(newUser, function (err, user) {
             if (err) throw err;
             res.send(user).end()
         });
     });
 
+  
 
     // Endpoint to login
     app.post('/login',

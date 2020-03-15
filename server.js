@@ -4,9 +4,12 @@ var PORT = process.env.PORT || 3001;
 var mongoose = require("mongoose");
 var passport = require('passport');
 var session = require('express-session');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json)
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 // Express Session
 app.use(session({
@@ -20,7 +23,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 var routes = require("./routes/apiroutes")
-
+routes(app)
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/carsdb")
 
