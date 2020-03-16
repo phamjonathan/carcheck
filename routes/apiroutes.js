@@ -2,6 +2,7 @@ var passport = require('passport');
 
 var db = require("../models")
 function apiRoutes(app) {
+    // This is a example to test routing locally
     app.get("/test",function(req,res){
         res.send("hello")
     })

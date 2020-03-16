@@ -9,7 +9,7 @@ function Signup() {
       Email <input /> <br />
       Username <input /> <br />
       Password <input /> <br />
-      <button> Sign Up </button>
+      <button> Submit </button>
     </div>
   );
 }

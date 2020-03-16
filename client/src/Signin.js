@@ -5,6 +5,9 @@ function Signin() {
   return (
     <div className="App">
       <h1> Sign In </h1>
+      Username <input /> <br />
+      Password <input /> <br />
+      <button> Submit </button>
     </div>
   );
 }

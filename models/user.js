@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 var passport = require('passport');
+
 // User Schema
 var UserSchema = mongoose.Schema({
   username: {
@@ -18,8 +19,11 @@ var UserSchema = mongoose.Schema({
   }
 });
 
+// Using this model to create and endpoint /registre
+// Which reieves a user object and saves it into our database
 var User = module.exports = mongoose.model('User', UserSchema);
 
+// Creating User 
 module.exports.createUser = function (newUser, callback) {
   bcrypt.genSalt(10, function (err, salt) {
     bcrypt.hash(newUser.password, salt, function (err, hash) {
@@ -28,24 +32,23 @@ module.exports.createUser = function (newUser, callback) {
     });
   });
 }
-
-
-
+// Retrieving Username
 module.exports.getUserByUsername = function (username, callback) {
   var query = { username: username };
   User.findOne(query, callback);
 }
-
+// Retrieving User by unique ID
 module.exports.getUserById = function (id, callback) {
   User.findById(id, callback);
 }
-
+// Validating User's Password
 module.exports.comparePassword = function (candidatePassword, hash, callback) {
   bcrypt.compare(candidatePassword, hash, function (err, isMatch) {
     if (err) throw err;
     callback(null, isMatch);
   });
 }
+// Authentication middleware for authenticating requests
 var LocalStrategy = require('passport-local').Strategy;
  passport.use(new LocalStrategy(
   function (username, password, done) {
@@ -66,10 +69,11 @@ var LocalStrategy = require('passport-local').Strategy;
   }
 ));
 
+// Serialization is initiated when a user is authenticated
 passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
-
+// Deserialization is initiated when user objected is need then is retrieved from database
 passport.deserializeUser(function (id, done) {
   User.getUserById(id, function (err, user) {
     done(err, user);
