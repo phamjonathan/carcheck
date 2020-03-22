@@ -1,12 +1,11 @@
-import React from 'react';
-import './App.css';
-import Nav from '../src/components/Nav';
-import About from '../src/components/About';
-import Signin from '../src/components/Signin';
-import Signup from '../src/components/Signup';
+import React, { Component } from "react";
+import Nav from '../Nav';
+import About from '../About';
+import Signin from '../Signin';
+import Signup from '../Signup';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-function App() {
+function App () {
   return (
     <Router>
     <div className="App">
@@ -29,4 +28,4 @@ const Home = () => (
   </div>
 )
 
-export default App;
+export default Roundabout;
