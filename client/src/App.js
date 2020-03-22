@@ -4,6 +4,7 @@ import Nav from '../src/components/Nav';
 import About from '../src/components/About';
 import Signin from '../src/components/Signin';
 import Signup from '../src/components/Signup';
+import Table from '../src/components/Table';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Switch>
       <Route path= "/" exact component= {Home} />
       <Route path= "/About" component= {About} />
+      <Route path = "/Cars" component= {Table} />
       <Route path= "/Signin" component= {Signin} />
       <Route path= "/Signup" component= {Signup} />
       </Switch>
