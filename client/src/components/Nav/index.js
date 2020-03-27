@@ -1,32 +1,73 @@
-import React from 'react';
+import React, {Component} from 'react';
 // import './App.css';
 import { Link } from 'react-router-dom';
+import API from '../../utils/api';
 
-function Nav() {
-    const navStyle = {
-        color: 'white'
-    };
+const navStyle = {
+    color: 'white'
+};
+class Nav extends Component {
+    state = {
+        name: "",
+        
+    }
+    componentDidMount(){
 
-    return (
-        <nav>
-            <h2> Car Check </h2>
-            <ul className="nav-Links">
+         
+        API.getUser().then(user => {
+          console.log("user:",user.data.name)
+          this.setState({
+            name: user.data.name
+          })
+        })
+      }
+    
+    render(){
+        return (
+            <nav>
+                <h2> Car Check </h2>
+                <ul className="nav-Links">
+    
+                    <Link style= {navStyle} to= "/">
+                    <li> Home </li>
+                    </Link>
+    
+                    <Link style= {navStyle} to= "/About">
+                    <li> About </li>
+                    </Link>
+    
+                    <Link style= {navStyle} to= "/Cars">
+                    <li> Find Cars </li>
+                    </Link>
+                    {console.log("getUser",this.state.name)}
 
-                <Link style= {navStyle} to= "../components/About/">
-                <li> About </li>
-                </Link>
+                   {
+                       this.state.name === undefined || this.state.name.length === 0 ? (
 
-                <Link style= {navStyle} to= "/Signup">
-                <li> Sign Up </li>
-                </Link>
 
-                <Link style= {navStyle} to= "/Signin">
-                <li> Sign In </li> 
-                </Link>
+                        <div>
+                        <Link style= {navStyle} to= "/Signin">
+                        <li> Sign In </li> 
+                        </Link>
 
-            </ul>
-        </nav>
-    );
+                        <Link style= {navStyle} to= "/Signup">
+                        <li> Sign Up </li>
+                        </Link>
+                        </div>
+                        ):(
+                        <Link style= {navStyle} to= "/Signout">
+                        <li> Sign Out </li>  Hello {this.state.name}
+                        </Link>
+                       )
+                   }
+                  
+    
+                </ul>
+            </nav>
+        );
+    }
+    
 }
 
 export default Nav;
+
