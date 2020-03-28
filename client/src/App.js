@@ -8,6 +8,7 @@ import Table from '../src/components/Table';
 import Cars from '../src/pages/Cars';
 import API from '../src/utils/api';
 import Signout from '../src/pages/Signout';
+import Home from '../src/components/Home';
 
 // import Footer from '../src/components/Footer';
 import {BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
@@ -32,6 +33,7 @@ state = {
         <Nav />
         <Switch>
         <Route path= "/" exact component= {Home} />
+        <Route path= "/Home" component= {Home} />
         <Route path= "/About" component= {About} />
         <Route path= "/Cars" component= {Table} />
         <Route path= "/Signin" component= {Signin} />
@@ -44,13 +46,5 @@ state = {
     );
   }
 }
-
-const Home = () => (
-  <div>
-    <h1> Lets Checkout Your Car  </h1>
-    <h2> With Car Check </h2> 
-    {/* <Footer/> */}
-  </div>
-)
 
 export default App;

@@ -24,7 +24,7 @@ class Nav extends Component {
             <nav>
                 <h2> Car Check </h2>
                 <ul className="nav-Links">
-                    <Link style= {navStyle} to= "/">
+                    <Link style= {navStyle} to= "/Home">
                     <li> Home </li>
                     </Link>
                     <Link style= {navStyle} to= "/About">
