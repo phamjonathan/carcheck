@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react';
 import API from '../utils/api';
 import {withRouter} from 'react-router-dom';
 import {Redirect} from 'react-router'
