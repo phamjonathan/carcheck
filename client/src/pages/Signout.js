@@ -1,15 +1,27 @@
-import React from 'react'
+import React, {Component} from 'react'
 import API from '../utils/api';
-function Signout () {
+import {withRouter} from 'react-router-dom';
+import {Redirect} from 'react-router'
 
-
-  const logOut = () => {
-           sessionStorage.setItem("user", "logout")
+class Signout extends React.Component{
+state = {
+    toDashboard: false,
+}
+componentDidMount(){
+    API.signOut().then(this.logOut())
+}
+  logOut = () => { 
+    console.log("hello")
+    sessionStorage.setItem("user", "logout")
+    this.setState({toDashboard:true})
    }
+   render() {
+    if(this.state.toDashboard === true){
+        return <Redirect to='/' />
+    }
     return(
         <div>  bye! </div>
     )
+   }
 }
-
-
-export default Signout;
+export default withRouter(Signout);

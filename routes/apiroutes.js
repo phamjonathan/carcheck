@@ -43,6 +43,7 @@ function apiRoutes(app) {
     app.post('/login',
         passport.authenticate('local'),
         function (req, res) {
+            console.log("hey");
             res.send(req.user);
         }
     );

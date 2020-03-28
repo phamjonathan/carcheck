@@ -29,7 +29,7 @@ class Signin extends Component {
       <div className="App">
       <h1> Sign In </h1>
       Username <input name = "username" value= {this.state.username} onChange={this.handleinputchange} /> <br />
-      Password <input name = "password" value= {this.state.password} onChange={this.handleinputchange} /> <br />
+      Password <input name = "password" value= {this.state.password} onChange={this.handleinputchange} type="password" /> <br />
       <button onClick={this.handleformsubmit}> Submit </button>
       <Footer />
     </div>

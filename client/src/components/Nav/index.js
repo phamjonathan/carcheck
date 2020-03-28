@@ -12,8 +12,6 @@ class Nav extends Component {
         
     }
     componentDidMount(){
-
-         
         API.getUser().then(user => {
           console.log("user:",user.data.name)
           this.setState({
@@ -42,26 +40,24 @@ class Nav extends Component {
                     {console.log("getUser",this.state.name)}
 
                    {
-                       this.state.name === undefined || this.state.name.length === 0 ? (
+                    this.state.name === undefined || this.state.name.length === 0 ? (
+                    
+                    <div>
+                    <Link style= {navStyle} to= "/Signin">
+                    <li> Sign In </li> 
+                    </Link>
 
-
-                        <div>
-                        <Link style= {navStyle} to= "/Signin">
-                        <li> Sign In </li> 
-                        </Link>
-
-                        <Link style= {navStyle} to= "/Signup">
-                        <li> Sign Up </li>
-                        </Link>
-                        </div>
-                        ):(
-                        <Link style= {navStyle} to= "/Signout">
-                        <li> Sign Out </li>  Hello {this.state.name}
-                        </Link>
-                       )
+                    <Link style= {navStyle} to= "/Signup">
+                    <li> Sign Up </li>
+                    </Link>
+                    </div>
+                    ):(
+                    <Link style= {navStyle} to= "/Signout" onClick={() => this.setState({name:""})}>
+                    <li> Sign Out </li>  Hello {this.state.name}
+                    </Link>
+                    )
                    }
-                  
-    
+        
                 </ul>
             </nav>
         );

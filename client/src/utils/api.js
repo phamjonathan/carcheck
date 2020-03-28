@@ -15,6 +15,6 @@ export default {
         return axios.get("/user")
     },
     signOut: function(){
-        return axios.post("/logout")
+        return axios.get("/logout")
     }
 }
