@@ -8,8 +8,7 @@ const navStyle = {
 };
 class Nav extends Component {
     state = {
-        name: "",
-        
+        name: "", 
     }
     componentDidMount(){
         API.getUser().then(user => {
@@ -25,28 +24,23 @@ class Nav extends Component {
             <nav>
                 <h2> Car Check </h2>
                 <ul className="nav-Links">
-    
                     <Link style= {navStyle} to= "/">
                     <li> Home </li>
                     </Link>
-    
                     <Link style= {navStyle} to= "/About">
                     <li> About </li>
                     </Link>
-    
                     <Link style= {navStyle} to= "/Cars">
                     <li> Find Cars </li>
                     </Link>
                     {console.log("getUser",this.state.name)}
 
                    {
-                    this.state.name === undefined || this.state.name.length === 0 ? (
-                    
+                   this.state.name === undefined || this.state.name.length === 0 ? (
                     <div>
                     <Link style= {navStyle} to= "/Signin">
                     <li> Sign In </li> 
                     </Link>
-
                     <Link style= {navStyle} to= "/Signup">
                     <li> Sign Up </li>
                     </Link>
@@ -57,12 +51,10 @@ class Nav extends Component {
                     </Link>
                     )
                    }
-        
                 </ul>
             </nav>
         );
     }
-    
 }
 
 export default Nav;
