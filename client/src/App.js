@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import './App.css';
-import Nav from '../src/components/Nav';
-import About from '../src/components/About';
-import Signin from '../src/pages/Signin';
-import Signup from '../src/pages/Signup';
-import Table from '../src/components/Table';
-import Cars from '../src/pages/Cars';
-import API from '../src/utils/api';
-import Signout from '../src/pages/Signout';
-import Home from '../src/components/Home';
+import Table from './components/Table';
+import Nav from './components/Nav';
+import About from './pages/About';
+import Signin from './pages/Signin';
+import Signup from './pages/Signup';
+import Cars from './pages/Cars';
+import Signout from './pages/Signout';
+import Home from './pages/Home';
+import API from './utils/api';
 
 // import Footer from '../src/components/Footer';
 import {BrowserRouter as Router, Switch, Route, } from 'react-router-dom';

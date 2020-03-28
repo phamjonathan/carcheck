@@ -53,7 +53,6 @@ function apiRoutes(app) {
         res.send(req.user);
     })
 
-
     // Endpoint to logout
     app.get('/logout', function (req, res) {
         req.logout();
