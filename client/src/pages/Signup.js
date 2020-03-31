@@ -33,10 +33,32 @@ class Signup extends Component {
     return (
       <div className="App">
         <h1> Sign Up </h1>
-        Name <input  name = "name" value= {this.state.name}  onChange={this.handleinputchange} /> <br />
-        Email <input name = "email" value= {this.state.email} onChange={this.handleinputchange} type="email" /> <br />
-        Username <input name = "username" value= {this.state.username} onChange={this.handleinputchange} /> <br />
-        Password <input name = "password" value= {this.state.password} onChange={this.handleinputchange} type="password" /> <br />
+        Name <input 
+        name = "name" 
+        value= {this.state.name}  
+        onChange={this.handleinputchange} /> <br/>
+        <br></br>
+
+        Email <input 
+        name = "email" 
+        value= {this.state.email} 
+        onChange={this.handleinputchange} 
+        type="email"/> <br/>
+        <br></br>
+
+        Username <input 
+        name = "username" 
+        value= {this.state.username} 
+        onChange={this.handleinputchange} /> <br/>
+
+        <br></br>
+        Password <input 
+        name = "password" 
+        value= {this.state.password} 
+        onChange={this.handleinputchange} 
+        type="password"/> <br/>
+        
+        <br></br>
         <button onClick={this.handleformsubmit}> Submit </button>
         <Footer />
       </div>

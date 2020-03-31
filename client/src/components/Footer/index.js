@@ -6,7 +6,7 @@ function Footer() {
 
       <hr />
       <p className= "pull-right" >
-       We Love Cars
+       Car Check
       </p>
 
     </footer>

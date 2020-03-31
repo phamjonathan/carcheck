@@ -2,8 +2,7 @@ import React from 'react';
 
 function Cars() {
   return (
-    <div className= "App" >
-    </div>
+    <div align="center" className= "App" ></div>
   );
 }
 

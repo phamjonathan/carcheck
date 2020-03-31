@@ -7,8 +7,22 @@ function apiRoutes(app) {
     app.get("/test",function(req,res){
         res.send("hello")
     })
-
     console.log("app:",app)
+
+    app.get("/api/carinfo/:search", function(req,res){
+        axios.get( "https://parseapi.back4app.com/classes/Carmodels_Car_Model_List",
+            {
+            headers: {
+                'X-Parse-Application-Id': 'VDkwxt0eyRZ1DetJ2Sm4P6XU3UwPDHoEyDx3xUnI', // This is your app's application id
+                'X-Parse-REST-API-Key': 'Ig1L9cuq0J9kLZKBey6g5tjYtLkegwxhmZvCxWDv', // This is your app's REST API key
+              }
+
+        }).then(function (response){
+            console.log(response.data)
+            res.json(response.data)
+        })
+    })
+
     // Register User
     app.post('/register', function (req, res) {
         console.log(req.body)
@@ -24,20 +38,6 @@ function apiRoutes(app) {
             res.send(user).end()
         });
     });
-
-    app.get("/api/carinfo/:search", function(req,res){
-        axios.get( "https://parseapi.back4app.com/classes/Carmodels_Car_Model_List",
-            {
-            headers: {
-                'X-Parse-Application-Id': 'VDkwxt0eyRZ1DetJ2Sm4P6XU3UwPDHoEyDx3xUnI', // This is your app's application id
-                'X-Parse-REST-API-Key': 'Ig1L9cuq0J9kLZKBey6g5tjYtLkegwxhmZvCxWDv', // This is your app's REST API key
-              }
-
-        }).then(function (response){
-            console.log(response.data)
-            res.json(response.data)
-        })
-    })
 
     // Endpoint to login
     app.post('/login',
@@ -59,6 +59,5 @@ function apiRoutes(app) {
         res.send(null)
     })
 }
-
 
 module.exports = apiRoutes

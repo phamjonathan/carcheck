@@ -68,7 +68,6 @@ var LocalStrategy = require('passport-local').Strategy;
     });
   }
 ));
-
 // Serialization is initiated when a user is authenticated
 passport.serializeUser(function (user, done) {
   done(null, user.id);

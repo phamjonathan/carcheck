@@ -5,6 +5,7 @@ export default {
     getCarInfo: function(search){
         return axios.get("/API/carinfo/" + search)
     },
+    // Login Authentication
     signUp: function(userData){
         return axios.post("/register", userData)
     },
