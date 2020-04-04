@@ -21,7 +21,7 @@ export default class Table extends Component {
                     <thead>
                         <tr>
                             <th>
-                                Year
+                                Logo
                             </th>
                             <th>
                                 Make
@@ -32,6 +32,12 @@ export default class Table extends Component {
                             <th>
                                 Category
                             </th>
+                            <th>
+                                Logo
+                            </th>
+                            <th>
+                                Model Image
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,10 +46,13 @@ export default class Table extends Component {
                                 console.log(info)
                                 return(
                                     <tr key={info.objectId}>
-                                    <td> {info.Year} </td>
+                                    <td> {info.Logo} </td>
                                     <td> {info.Make} </td>
-                                    <td> {info.Model} </td>
+                                    <td> {info.Year} </td>
                                     <td> {info.Category} </td>
+                                    <td> {info.Model} </td>
+                                    <td> {info.Model_Image} </td>
+
                                 </tr>
                                 )
                               

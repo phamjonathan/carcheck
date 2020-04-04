@@ -10,11 +10,11 @@ function apiRoutes(app) {
     console.log("app:",app)
 
     app.get("/api/carinfo/:search", function(req,res){
-        axios.get( "https://parseapi.back4app.com/classes/Carmodels_Car_Model_List",
+        axios.get( "https://parseapi.back4app.com/classes/Car_Model_List_BMW",
             {
             headers: {
-                'X-Parse-Application-Id': 'VDkwxt0eyRZ1DetJ2Sm4P6XU3UwPDHoEyDx3xUnI', // This is your app's application id
-                'X-Parse-REST-API-Key': 'Ig1L9cuq0J9kLZKBey6g5tjYtLkegwxhmZvCxWDv', // This is your app's REST API key
+                'X-Parse-Application-Id': '', 
+                'X-Parse-REST-API-Key': '', 
               }
 
         }).then(function (response){
